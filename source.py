@@ -1,5 +1,4 @@
 from io import BytesIO
-
 from openpyxl.drawing.image import Image
 from openpyxl.styles import Alignment, Font, NamedStyle
 from openpyxl.worksheet.hyperlink import Hyperlink
@@ -9,19 +8,7 @@ from selenium.webdriver.common.by import By
 from time import sleep
 from openpyxl import Workbook
 
-def containsValue(element, values):
-    element = element.lower()
-    for value in values:
-        if value.lower() in element:
-            return True
-    return False
-
-def acceptCookiesIfPromptPresent():
-    cookieConfirmSection = driver.find_elements(By.XPATH, "//div[@id='cookie_confirm_dv']")
-    # If no cookie elements are found present on the page and cookie banner is not hidden
-    if len(cookieConfirmSection) != 0 and 'display: none' not in cookieConfirmSection[0].get_attribute('style'):
-        # Accept cookies
-        driver.find_element(By.XPATH, ".//div/table/tbody/tr/td[2]/button").click()
+from helper import containsValue, acceptCookiesIfPromptPresent
 
 service = Service()
 option = webdriver.ChromeOptions()
@@ -51,7 +38,7 @@ driver.find_element(By.XPATH, categoryXPath + "/option[text()='Video']").click()
 # Fetch page count
 pageCount = int(driver.find_element(By.XPATH, "//a[@class='navi'][last() - 1]").text)
 
-# Create new Excel workbook
+# Create new Excel workbook for output
 wb = Workbook()
 ws = wb.active
 # Set Excel header field values
@@ -77,7 +64,7 @@ for i in range(pageCount):
     listings = driver.find_elements(By.XPATH, listingXPath)
 
     for listing in listings:
-        acceptCookiesIfPromptPresent()
+        acceptCookiesIfPromptPresent(driver)
         listingUrl = listing.find_element(By.XPATH, ".//td[2]/a").get_attribute("href")
         listingPictureData = listing.find_element(By.XPATH, ".//td[2]/a/img").screenshot_as_png
         listingRegion = listing.find_element(By.XPATH, ".//td[3]/div[@class='ads_region']").text
@@ -125,4 +112,5 @@ for row in ws.iter_rows():
     ws.merge_cells(start_row=row[0].row, end_row=row[0].row, start_column=row[4].column, end_column=row[5].column)
     ws.row_dimensions[row[0].row].height = 50
 
+# Save the output workbook
 wb.save("dip225_5.xlsx")
