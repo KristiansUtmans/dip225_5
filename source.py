@@ -101,3 +101,28 @@ for i in range(pageCount):
     # Navigate to next page
     driver.find_element(By.XPATH, "//a[@class='navi'][last()]").click()
     sleep(0.25)
+
+# Excel file graphical formatting
+
+# Header formatting
+for cell in ws[1]:
+    cell.alignment = Alignment(horizontal='center', vertical='center')
+    cell.font = Font(bold=True, size=18)
+
+# Width formatting
+for col in ws.columns:
+    max_length = 0
+    letter = col[0].column_letter
+    for cell in col:
+        value = cell.value
+        if value is not None and len(str(value)) > max_length:
+            max_length = len(value)
+        adjusted_width = (max_length + 2) * 1.2
+        ws.column_dimensions[letter].width = adjusted_width
+
+# Height formatting
+for row in ws.iter_rows():
+    ws.merge_cells(start_row=row[0].row, end_row=row[0].row, start_column=row[4].column, end_column=row[5].column)
+    ws.row_dimensions[row[0].row].height = 50
+
+wb.save("dip225_5.xlsx")
