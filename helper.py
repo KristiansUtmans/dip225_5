@@ -32,7 +32,7 @@ def getListingPriceDifferenceColor(listingPriceDifference):
     elif listingPriceDifference >= 50:
         return 'FFC300'
     elif listingPriceDifference >= -25:
-        return 'FFFFFF'
+        return '999999'
     elif listingPriceDifference >= -50:
         return 'AFF5B7'
     elif listingPriceDifference >= -100:
