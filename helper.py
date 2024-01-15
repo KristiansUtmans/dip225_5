@@ -34,11 +34,11 @@ def getListingPriceDifferenceColor(listingPriceDifference):
     elif listingPriceDifference >= -25:
         return 'E0E0E0' # 25 eur price difference, pretty much the same
     elif listingPriceDifference >= -100:
-        return '71FF85' # 25 to 100 eur cheaper
+        return 'B6F397' # 25 to 100 eur cheaper
     elif listingPriceDifference > -200:
-        return '88EC56' # 100 to 200 eur cheaper
+        return '78E93F' # 100 to 200 eur cheaper
     elif listingPriceDifference <= -200:
-        return '00D61F' # 200+ eur cheaper
+        return '00D01E' # 200+ eur cheaper
 
 def saveWorkbook(wb):
     wb.save('dip225_5.xlsx')
