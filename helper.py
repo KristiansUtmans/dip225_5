@@ -26,19 +26,19 @@ def calculatePriceDifference(averagePrices, model, price):
 def getListingPriceDifferenceColor(listingPriceDifference):
     # Price formatting thresholds and colors
     if listingPriceDifference >= 200:
-        return 'FE0000'
+        return 'FE0000' # 200+ eur more expensive
     elif listingPriceDifference >= 100:
-        return 'FF5733'
+        return 'FF5733' # 100 to 200 eur more expensive
     elif listingPriceDifference >= 50:
-        return 'FFC300'
+        return 'FFC300' # 50 to 100 eur more expensive
     elif listingPriceDifference >= -25:
-        return '999999'
-    elif listingPriceDifference >= -50:
-        return 'AFF5B7'
+        return 'E0E0E0' # 25 eur price difference, pretty much the same
     elif listingPriceDifference >= -100:
-        return '52C860'
-    elif listingPriceDifference >= -200:
-        return '02C60F'
+        return '71FF85' # 25 to 100 eur cheaper
+    elif listingPriceDifference > -200:
+        return '88EC56' # 100 to 200 eur cheaper
+    elif listingPriceDifference <= -200:
+        return '00D61F' # 200+ eur cheaper
 
 def saveWorkbook(wb):
     wb.save('dip225_5.xlsx')
