@@ -1,4 +1,4 @@
-from openpyxl.styles import Alignment, Font, PatternFill
+from openpyxl.styles import Alignment, Font, PatternFill, NamedStyle
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -31,7 +31,7 @@ ws['B1'] = 'Zīmols'
 ws['C1'] = 'Lietota'
 ws['D1'] = 'Cena'
 ws['E1'] = 'Attēls'
-ws['G1'] = 'Saite'
+ws['F1'] = 'Saite'
 
 # Fetch listings
 fetchListingsAndPopulateWorksheet(driver, ws)
@@ -49,6 +49,8 @@ driver.find_element(By.XPATH, "//*").click()
 
 usedAveragePrices = fetchAveragePrices(driver)
 
+FormatEuro = NamedStyle(name='euro_style', number_format='€#,##0.00')
+
 # Comparing listing prices with average prices
 for row in ws.iter_rows(min_row=2):
     listingModel = row[0].value.lower()
@@ -58,10 +60,10 @@ for row in ws.iter_rows(min_row=2):
 
     # Set price color based on the difference with average price for this video card
     listingPriceColor = getListingPriceDifferenceColor(listingPriceDifference)
+    row[3].style = FormatEuro
     row[3].fill = PatternFill(start_color=listingPriceColor, end_color=listingPriceColor, fill_type='solid')
 
     # Height and merge cell formatting
-    ws.merge_cells(start_row=row[0].row, end_row=row[0].row, start_column=row[4].column, end_column=row[5].column)
     ws.row_dimensions[row[0].row].height = 50
 
 # Excel file graphical formatting
@@ -79,7 +81,7 @@ for col in ws.columns:
         value = cell.value
         if value is not None and len(str(value)) > maxLength:
             maxLength = len(value)
-        updatedWidth = (maxLength + 2) * 1.2
+        updatedWidth = (maxLength + 2) * 1.4
         ws.column_dimensions[letter].width = updatedWidth
 
 # Save the output workbook

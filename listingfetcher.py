@@ -59,9 +59,9 @@ def fetchListingsAndPopulateWorksheet(driver, ws):
                 listingPictureStream = BytesIO(listingPictureData)
                 listingPicture = Image(listingPictureStream)
                 ws.add_image(listingPicture, f'E{listingRow}')
-                ws[f'G{listingRow}'] = listingUrl
-                ws[f'G{listingRow}'].style = hyperlinkStyle
-                ws[f'G{listingRow}'].hyperlink = Hyperlink(ref=listingUrl, target=listingUrl)
+                ws[f'F{listingRow}'] = listingUrl
+                ws[f'F{listingRow}'].style = hyperlinkStyle
+                ws[f'F{listingRow}'].hyperlink = Hyperlink(ref=listingUrl, target=listingUrl)
                 listingRow += 1
 
         # Navigate to next page
