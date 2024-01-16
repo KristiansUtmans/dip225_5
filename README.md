@@ -43,6 +43,8 @@ Programmas darbības laikā varat terminālī tiks izvadīta programmas gaita, v
 
 Pēc programmas faila saglabāšanas jums terminālī tiks pateikts kur fails tika saglabāts jūsu Projekta direktorijā, tas vienmēr tiks saglabāts iekš "output" mapes.
 
+**Ja programmai ir kādas problēmas, tas varētu būt jūsu interneta savienojuma dēļ, tādēļ ieteicams atrast projektā 3 vietās izsaukto sleep funkciju un palielināt tās vērtību.**
+
 ### Programmas koda struktūra
 
 Programmas kodu veidoju izmantojot sev nepieciešamos OOP principus, lai veidotu kodu lasāmāku un atkārtoti lietojamu.
