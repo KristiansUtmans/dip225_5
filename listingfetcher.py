@@ -21,6 +21,7 @@ excludedRegions = [
 ]
 
 def fetchListingsAndPopulateWorksheet(driver, ws):
+    print("Started fetching listings...")
     # Listings start from second entry since first is the header
     listingRow = 2
     hyperlinkStyle = NamedStyle(name='hyperlink', font=Font(underline='single', color='0563C1'))
@@ -34,6 +35,8 @@ def fetchListingsAndPopulateWorksheet(driver, ws):
 
     # Not using enumerate with listingRow because represented listing count in Excel will not be always equal to the fetched listing count
     for i in range(pageCount):
+
+        print(f"{round(i/pageCount * 100)}% done")
 
         # Show only "Sell" listings
         driver.find_element(By.XPATH, dealTypeXPath).click()
@@ -67,3 +70,4 @@ def fetchListingsAndPopulateWorksheet(driver, ws):
         # Navigate to next page
         driver.find_element(By.XPATH, "//a[@class='navi'][last()]").click()
         sleep(0.25)
+    print("Finished fetching listings.")

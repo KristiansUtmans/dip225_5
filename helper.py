@@ -53,3 +53,5 @@ def saveWorkbook(wb):
         mkdir(f"output/{fileDate}")
 
     wb.save(f"output/{fileDate}/{fileDate}_{str(fileNumber)}.xlsx")
+
+    print("Your output file has been saved: " +  f"output/{fileDate}/{fileDate}_{str(fileNumber)}.xlsx")
