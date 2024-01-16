@@ -3,3 +3,5 @@
 
 # Output files from testing
 *.xlsx
+# Output created file dictionaries
+/output/*

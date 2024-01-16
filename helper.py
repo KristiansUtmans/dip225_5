@@ -1,4 +1,6 @@
+from os import path, mkdir
 from selenium.webdriver.common.by import By
+from datetime import datetime
 
 
 def containsValue(element, values):
@@ -41,4 +43,13 @@ def getListingPriceDifferenceColor(listingPriceDifference):
         return '00D01E' # 200+ eur cheaper
 
 def saveWorkbook(wb):
-    wb.save('dip225_5.xlsx')
+    fileDate = datetime.now().strftime('%d_%m_%Y')
+    fileNumber = 1
+
+    while path.exists(f"output/{fileDate}/{fileDate}_{str(fileNumber)}.xlsx"):
+        fileNumber += 1
+
+    if not path.exists(f"output/{fileDate}"):
+        mkdir(f"output/{fileDate}")
+
+    wb.save(f"output/{fileDate}/{fileDate}_{str(fileNumber)}.xlsx")
