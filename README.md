@@ -8,7 +8,7 @@ Projekta mērķis ir izveidota programma, kas automātiski ģenerē atskaites ar
 
 Atkarībā no cenas izmaiņas starp sludinājuma cenu un tās video kartes vidējo cenu, cenas aile atskaitē priekš attiecīgā sludinājuma tiktu iekrāsota attiecīgā krāsā, no sarkana toņa(vissliktākais piedāvājums) līdz zaļam tonim(vislabākais piedāvājums).
 
-### Izmantotās bibliotēkas
+## Izmantotās bibliotēkas
 
 Projekts tika veidots izmantojot Python, kā arī sekojošās bibliotēkas priekš Python:
 * Openpyxl - Bibliotēka tika izmantota, lai izveidotu un formatētu excel failu priekš programmas izvades
@@ -18,7 +18,7 @@ Projekts tika veidots izmantojot Python, kā arī sekojošās bibliotēkas priek
   * Os, path un mkdir funkcijas - Funkcijas priekš programmas izveidotā faila saglabāšanas sistēmā
   * Io, BytesIO funkcija - Funkcija, lai izveidotu bildes objektu iekšēji atmiņai no Selenium izveidotā ekrānšāviņa bildes baitu datiem
 
-### Priekšnosacījumi
+## Priekšnosacījumi
 
 **⚠️⚠️⚠️ Programmas darbības laikā ir iespējams, ka parādīsies spilgta balta mirgošana iekš Selenium izveidotā tīmekļa sludinājumu mājaslapas datu apstrādes laikā.**<br>
 **Tādēļ ir ļoti ieteicams programmas darbības laikā Selenium izveidoto tīmekļa lapu minimizēt, ja jums ir jūtīgums pret ātru spilgtu gaismas attēlu izmaiņām. ⚠️⚠️⚠️**
@@ -28,7 +28,7 @@ Projekts tika veidots izmantojot Python, kā arī sekojošās bibliotēkas priek
 Programmas mērķis ir tikai iegūt pārskatamāku sludinājumu izvadi un salīdzināšanu ar citas mājaslapas resursiem.<br>
 Visas programmas darbības tiek veiktas saskaņā ar Latvijas likumdošanas nosacījumiem un ētiskiem standartiem, programma neievāc nekādus sensitīvus datus par personām.
 
-### Programmas instalācija
+## Programmas instalācija
 
 Programmas darbībai ir nepieciešams būt uzinstalētam Python 3.7 vai jaunākai Python versijai.
 
@@ -38,7 +38,7 @@ Programmas darbībai ir nepieciešams būt uzinstalētam Python 3.7 vai jaunāka
 2. Instalējiet vajadzīgās projekta bibliotēkas: ```pip install -r requirements.txt```<br>
 Šis requirements.txt fails tika automātiski ģenerēts izmantojot: [pipreqs](https://github.com/bndr/pipreqs)
 
-### Programmas lietošana
+## Programmas lietošana
 
 Programmu var palaist izmantojot ```source.py``` failu, caur jebkādu IDE vai termināli ierakstot: ```python source.py```.
 
@@ -49,7 +49,7 @@ Pēc programmas faila saglabāšanas jums terminālī tiks pateikts kur fails ti
 
 **Ja programmai ir kādas problēmas, tas varētu būt jūsu interneta savienojuma dēļ, tādēļ ieteicams atrast projektā 3 vietās izsaukto sleep funkciju un palielināt tās vērtību.**
 
-### Programmas koda struktūra
+## Programmas koda struktūra
 
 Programmas kodu veidoju izmantojot sev nepieciešamos OOP principus, lai veidotu kodu lasāmāku un atkārtoti lietojamu.
 
