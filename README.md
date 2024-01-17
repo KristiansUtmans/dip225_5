@@ -4,6 +4,10 @@
 Vairākus gadus, ļoti regulāri veru vaļā sludinājumu mājaslapu un skatos cauri katram sludinājumam, dažreiz esmu aizmirsis aktuālās video karšu cenas un tad tās man ir arī jāiet pašam un jāpārbauda.<br><br>
 Tādēļ šāds projekts tika izstrādāts - lai vieglāk un ātrāk būtu iespēja aplūkot un salīdzināt video karšu sludinājumus.
 
+Projekta mērķis ir izveidota programma, kas automātiski ģenerē atskaites ar vajadzīgo sludinājumu saturu un to cenu salīdzinātu ar video kartes tagadējo vidējo cenu datiem.
+
+Atkarībā no cenas izmaiņas starp sludinājuma cenu un tās video kartes vidējo cenu, cenas aile atskaitē priekš attiecīgā sludinājuma tiktu iekrāsota attiecīgā krāsā, no sarkana toņa(vissliktākais piedāvājums) līdz zaļam tonim(vislabākais piedāvājums).
+
 ### Izmantotās bibliotēkas
 
 Projekts tika veidots izmantojot Python, kā arī sekojošās bibliotēkas priekš Python:
